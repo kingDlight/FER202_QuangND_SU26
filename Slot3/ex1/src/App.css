@@ -1,0 +1,9 @@
+.greeting-container {
+  font-size: 32px;
+  font-family: Arial, sans-serif;
+}
+
+.react-text {
+  color: blue;
+  font-weight: bold;
+}
