@@ -20,6 +20,11 @@ export const authReducer = (state, action) => {
       return { ...state, isAuthenticated: true, user: action.payload, error: null, isLoading: false };
     case 'LOGIN_FAILURE':
       return { ...state, isAuthenticated: false, user: null, error: action.payload, isLoading: false };
+    case 'CHANGE_PASSWORD': {
+      const updatedUser = { ...state.user, password: action.payload };
+      localStorage.setItem('auth_user', JSON.stringify(updatedUser));
+      return { ...state, user: updatedUser };
+    }
     case 'LOGOUT':
       localStorage.removeItem('auth_user');
       return { ...state, isAuthenticated: false, user: null, error: null, isLoading: false };
